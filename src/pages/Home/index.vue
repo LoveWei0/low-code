@@ -2,9 +2,9 @@
 * new page
 * @author:loveWei0
 * @since:2023-12-08
-* App.vue
+* index.vue
 -->
-<template><router-view /></template>
+<template>Home</template>
 
 <script setup></script>
 
