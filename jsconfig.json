@@ -1,22 +1,12 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "~assets/*": [
-                "src/assets/*"
-            ],
-            "~components/*": [
-                "src/components/*"
-            ],
-            "~pages/*": [
-                "src/pages/*"
-            ],
-            "~router/*": [
-                "src/router/*"
-            ],
-            "~/*": [
-                "src/*"
-            ]
-        }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~assets/*": ["src/assets/*"],
+      "~components/*": ["src/components/*"],
+      "~pages/*": ["src/pages/*"],
+      "~router/*": ["src/router/*"],
+      "@/*": ["src/*"]
     }
+  }
 }
