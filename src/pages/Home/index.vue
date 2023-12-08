@@ -4,8 +4,21 @@
 * @since:2023-12-08
 * index.vue
 -->
-<template>Home</template>
+<template>
+  <div class="home">
+    <Toolbar />
+  </div>
+</template>
 
-<script setup></script>
+<script setup>
+// component
+import Toolbar from '@/components/Toolbar.vue'
+</script>
 
-<style scoped></style>
+<style lang="scss">
+.home {
+  height: 100vh;
+  width: 100px;
+  background: var(--main-bg-color);
+}
+</style>
