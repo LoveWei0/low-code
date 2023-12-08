@@ -42,11 +42,21 @@
       active-color="#000"
     />
   </div>
+  <!-- 预览 -->
+  <Preview v-if="isShowPreview" :isScreenshot="isScreenshot" />
+  <AceEditor v-if="isShowAceEditor" />
 </template>
 
 <script setup>
 import { ref } from 'vue'
+// components
+import Preview from '@/components/Editor/Preview.vue'
+import AceEditor from '@/components/Editor/AceEditor.vue'
+
 const switchValue = ref(false)
+const isShowPreview = ref(false)
+const isScreenshot = ref(false)
+const isShowAceEditor = ref(false)
 </script>
 
 <style scoped lang="scss">

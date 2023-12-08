@@ -7,10 +7,12 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: (typeof import('element-plus/es'))['ElButton']
-    ElSwitch: (typeof import('element-plus/es'))['ElSwitch']
-    RouterLink: (typeof import('vue-router'))['RouterLink']
-    RouterView: (typeof import('vue-router'))['RouterView']
-    Toolbar: (typeof import('./components/Toolbar.vue'))['default']
+    AceEditor: typeof import('./components/Editor/AceEditor.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    Preview: typeof import('./components/Editor/Preview.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    Toolbar: typeof import('./components/Toolbar.vue')['default']
   }
 }
