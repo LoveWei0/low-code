@@ -18,7 +18,6 @@ import Toolbar from '@/components/Toolbar.vue'
 <style lang="scss">
 .home {
   height: 100vh;
-  width: 100px;
   background: var(--main-bg-color);
 }
 </style>
