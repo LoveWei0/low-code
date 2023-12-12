@@ -10,7 +10,7 @@
     <main>
       <!-- 左侧组件列表 -->
       <section :class="leftList ? 'left active' : 'left inactive'">
-        <ComponentList/>
+        <ComponentList />
       </section>
       <el-button
         title="show-list-btn"

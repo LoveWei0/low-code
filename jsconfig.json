@@ -6,7 +6,7 @@
       "~assets/*": ["src/assets/*"],
       "~components/*": ["src/components/*"],
       "~pages/*": ["src/pages/*"],
-      "~router/*": ["src/router/*"],
+      "~router/*": ["src/router/*"]
     }
   }
 }
