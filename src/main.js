@@ -4,6 +4,8 @@ import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // vue-router
 import router from './router'
+// 自定义组件
+import { attrComponents, comComponents } from '@/custom-component/index'
 // pinia
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
@@ -20,6 +22,9 @@ createPinia().use(piniaPluginPersistedstate)
 
 app.use(router)
 app.use(createPinia())
+// 注册全局组件
+app.use(attrComponents)
+app.use(comComponents)
 app.mount('#app')
 
 // 注册所有图标

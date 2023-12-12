@@ -12,6 +12,7 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Preview: typeof import('./components/Editor/Preview.vue')['default']
+    RealTimeComponentList: typeof import('./components/RealTimeComponentList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Toolbar: typeof import('./components/Toolbar.vue')['default']

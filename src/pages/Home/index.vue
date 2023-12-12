@@ -11,6 +11,7 @@
       <!-- 左侧组件列表 -->
       <section :class="leftList ? 'left active' : 'left inactive'">
         <ComponentList />
+        <RealTimeComponentList />
       </section>
       <el-button
         title="show-list-btn"
@@ -20,7 +21,12 @@
       ></el-button>
       <!-- 中间画布 -->
       <section class="center">
-        <div class="content">中间</div>
+        <div class="content">
+          中间
+          <VTextAttr />
+          <VTextComponent />
+          p
+        </div>
       </section>
       <!-- 右侧属性列表 -->
       <section :class="rightList ? 'right active' : 'right inactive'">
@@ -41,6 +47,7 @@ import { ref } from 'vue'
 // component
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
+import RealTimeComponentList from '@/components/RealTimeComponentList.vue'
 // store
 import { useStore } from '@/store/index.js'
 // pinia
