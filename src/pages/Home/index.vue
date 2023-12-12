@@ -16,6 +16,7 @@
         title="show-list-btn"
         class="btn show-list left-btn"
         :icon="leftList ? 'ArrowLeft' : 'ArrowRight'"
+        @click="isShowLeft"
       ></el-button>
       <!-- 中间画布 -->
       <section class="center">
@@ -29,6 +30,7 @@
         title="show-list-btn"
         class="btn show-list right-btn"
         :icon="rightList ? 'ArrowRight' : 'ArrowLeft'"
+        @click="store.isShowRightList()"
       ></el-button>
     </main>
   </div>
@@ -45,6 +47,11 @@ import { storeToRefs } from 'pinia'
 const leftList = ref(true)
 const store = useStore()
 const { rightList } = storeToRefs(store)
+// 左侧按钮事件
+const isShowLeft = () => {
+  let newLeftList = !leftList.value
+  leftList.value = newLeftList
+}
 </script>
 
 <style lang="scss">
@@ -89,14 +96,35 @@ const { rightList } = storeToRefs(store)
       color: var(--text-color);
     }
     .left {
-      position: absolute;
       width: 200px;
       left: 0;
+    }
+    .left.inactive ~ .center,
+    .left.inactive ~ .btn.left-btn {
+      margin-left: 10px;
+    }
+    .left.inactive {
+      width: 10px;
+      overflow: hidden;
+      div {
+        opacity: 0;
+      }
     }
     .right {
       position: absolute;
       width: 288px;
       right: 0;
+    }
+    .right.inactive ~ .center,
+    .right.inactive ~ .btn.right-btn {
+      margin-right: 10px;
+    }
+    .right.inactive {
+      width: 10px;
+      overflow: hidden;
+      div {
+        opacity: 0;
+      }
     }
     .center {
       margin: 0 288px 0 200px;
