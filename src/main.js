@@ -7,6 +7,9 @@ import router from './router'
 // pinia
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+// 引入icon
+import '@/assets/iconfont/iconfont.css'
+import '@/style/animate.scss'
 // 清除css
 import '@/style/reset.css'
 import '@/style/global.scss'

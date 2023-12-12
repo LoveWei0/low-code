@@ -10,7 +10,7 @@
     <main>
       <!-- 左侧组件列表 -->
       <section :class="leftList ? 'left active' : 'left inactive'">
-        左侧
+        <ComponentList/>
       </section>
       <el-button
         title="show-list-btn"
@@ -40,6 +40,7 @@
 import { ref } from 'vue'
 // component
 import Toolbar from '@/components/Toolbar.vue'
+import ComponentList from '@/components/ComponentList.vue'
 // store
 import { useStore } from '@/store/index.js'
 // pinia

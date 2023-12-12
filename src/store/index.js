@@ -6,8 +6,7 @@ export const useStore = defineStore('useStore', {
     count: 0,
   }),
   actions: {
-    isShowRightList () {
-      console.log(this.rightList)
+    isShowRightList() {
       this.rightList = !this.rightList
     },
   },
