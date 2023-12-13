@@ -31,6 +31,7 @@
       <!-- 右侧属性列表 -->
       <section :class="rightList ? 'right active' : 'right inactive'">
         右侧
+        <SvgStar />
       </section>
       <el-button
         title="show-list-btn"

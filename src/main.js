@@ -6,6 +6,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import router from './router'
 // 自定义组件
 import { attrComponents, comComponents } from '@/custom-component/index'
+// svg
+import { svgAttr, svgComponent } from '@/custom-component/index'
 // pinia
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
@@ -25,6 +27,9 @@ app.use(createPinia())
 // 注册全局组件
 app.use(attrComponents)
 app.use(comComponents)
+// 注册全局SVG
+app.use(svgAttr)
+app.use(svgComponent)
 app.mount('#app')
 
 // 注册所有图标
