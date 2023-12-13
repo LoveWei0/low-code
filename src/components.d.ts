@@ -10,6 +10,8 @@ declare module 'vue' {
     AceEditor: typeof import('./components/Editor/AceEditor.vue')['default']
     ComponentList: typeof import('./components/ComponentList.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
+    ElForm: typeof import('element-plus/es')['ElForm']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Preview: typeof import('./components/Editor/Preview.vue')['default']
     RealTimeComponentList: typeof import('./components/RealTimeComponentList.vue')['default']

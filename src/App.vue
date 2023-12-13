@@ -4,9 +4,14 @@
 * @since:2023-12-08
 * App.vue
 -->
-<template><router-view /></template>
+<template>
+  <router-view />
+  <!-- <linkage /> -->
+</template>
 
-<script setup></script>
+<script setup>
+// import Linkage from './custom-component/CusComGlobal/Linkage.vue'
+</script>
 
 <style>
 #app {
