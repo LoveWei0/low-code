@@ -6,7 +6,7 @@
 -->
 <template>
   <div class="toolbar">
-    <el-button>JSON</el-button>
+    <el-button @click="handleAceEditorChange">JSON</el-button>
     <el-button>撤销</el-button>
     <el-button>重做</el-button>
     <label for="input" class="insert">
@@ -57,6 +57,11 @@ const switchValue = ref(false)
 const isShowPreview = ref(false)
 const isScreenshot = ref(false)
 const isShowAceEditor = ref(false)
+
+// JSON事件
+const handleAceEditorChange = () => {
+  isShowAceEditor.value = !isShowAceEditor.value
+}
 </script>
 
 <style scoped lang="scss">

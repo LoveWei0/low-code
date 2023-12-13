@@ -22,16 +22,12 @@
       <!-- 中间画布 -->
       <section class="center">
         <div class="content">
-          中间
-          <VTextAttr />
-          <VTextComponent />
-          p
+          <Editor />
         </div>
       </section>
       <!-- 右侧属性列表 -->
       <section :class="rightList ? 'right active' : 'right inactive'">
         右侧
-        <SvgStar />
       </section>
       <el-button
         title="show-list-btn"
@@ -49,6 +45,8 @@ import { ref } from 'vue'
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
 import RealTimeComponentList from '@/components/RealTimeComponentList.vue'
+// component -> Editor
+import Editor from '@/components/Editor/index.vue'
 // store
 import { useStore } from '@/store/index.js'
 // pinia

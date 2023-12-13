@@ -7,6 +7,7 @@ export const useStore = defineStore('useStore', {
     componentData: [],
     curComponent: null,
     curComponentIndex: null,
+    isDarkMode: false,
   }),
   actions: {
     isShowRightList() {

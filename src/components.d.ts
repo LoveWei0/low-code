@@ -9,10 +9,12 @@ declare module 'vue' {
   export interface GlobalComponents {
     AceEditor: typeof import('./components/Editor/AceEditor.vue')['default']
     ComponentList: typeof import('./components/ComponentList.vue')['default']
+    Editor: typeof import('./components/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    Grid: typeof import('./components/Editor/Grid.vue')['default']
     Preview: typeof import('./components/Editor/Preview.vue')['default']
     RealTimeComponentList: typeof import('./components/RealTimeComponentList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
