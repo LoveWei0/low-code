@@ -12,7 +12,6 @@ declare module 'vue' {
     ComponentList: typeof import('./components/ComponentList.vue')['default']
     Editor: typeof import('./components/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
