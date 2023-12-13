@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["src/*"],
-      "~assets/*": ["src/assets/*"],
-      "~components/*": ["src/components/*"],
-      "~pages/*": ["src/pages/*"],
-      "~router/*": ["src/router/*"]
-    }
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@router/*": ["src/router/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   }
 }

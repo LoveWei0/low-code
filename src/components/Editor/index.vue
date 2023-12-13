@@ -5,19 +5,40 @@
 * index.vue
 -->
 <template>
-  <div id="editor" class="editor">
+  <div
+    id="editor"
+    class="editor"
+    :class="{ edit: isEdit }"
+    :style="{
+      ...getCanvasStyle(canvasStyleData),
+      width: changeStyleWithScale(canvasStyleData.width) + 'px',
+      height: changeStyleWithScale(canvasStyleData.height) + 'px',
+    }"
+  >
     <!-- 网格线 -->
     <Grid :is-dark-mode="isDarkMode" />
     <!-- 页面组件列表展示 -->
+    {{ canvasStyleData }}
   </div>
 </template>
 
 <script setup>
-import Grid from './Grid.vue'
 import { useStore } from '@/store/index.js'
 import { storeToRefs } from 'pinia'
-const store = useStore()
-const { isDarkMode } = storeToRefs(store)
+// 工具库
+import { getCanvasStyle } from '@utils/style'
+import { changeStyleWithScale } from '@utils/translate'
+// component
+import Grid from './Grid.vue'
+const { isDarkMode, canvasStyleData } = storeToRefs(useStore())
+console.log(Object.keys(canvasStyleData.value))
+// props
+defineProps({
+  isEdit: {
+    type: Boolean,
+    default: true,
+  },
+})
 </script>
 
 <style scoped lang="scss">
@@ -25,5 +46,12 @@ const { isDarkMode } = storeToRefs(store)
   position: relative;
   background-color: #fff;
   margin: auto;
+}
+.edit {
+  .component {
+    outline: none;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

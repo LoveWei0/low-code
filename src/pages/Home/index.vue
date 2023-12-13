@@ -21,7 +21,10 @@
       ></el-button>
       <!-- 中间画布 -->
       <section class="center">
-        <div class="content">
+        <div
+          class="content"
+          :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
+        >
           <Editor />
         </div>
       </section>

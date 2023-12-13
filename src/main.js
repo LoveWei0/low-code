@@ -20,12 +20,14 @@ import '@/style/reset.css'
 import '@/style/global.scss'
 import '@/style/dark.scss'
 
+const store = createPinia()
+
+store.use(piniaPluginPersistedstate)
+
 const app = createApp(App)
 
-createPinia().use(piniaPluginPersistedstate)
-
 app.use(router)
-app.use(createPinia())
+app.use(store)
 // 注册全局组件
 app.use(attrComponents)
 app.use(comComponents)
