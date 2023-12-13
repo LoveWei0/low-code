@@ -1,4 +1,4 @@
-import { multiply,divide } from 'mathjs'
+import { multiply, divide } from 'mathjs'
 // store
 import { useStore } from '@store/index'
 // pinia
