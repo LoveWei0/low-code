@@ -5,7 +5,7 @@
 * index.vue
 -->
 <template>
-  <div class="home">
+  <div :class="!isDarkMode ? 'home' : 'home dark'">
     <Toolbar />
     <main>
       <!-- 左侧组件列表 -->
@@ -27,7 +27,16 @@
       </section>
       <!-- 右侧属性列表 -->
       <section :class="rightList ? 'right active' : 'right inactive'">
-        右侧
+        <el-tabs v-if="curComponent">
+          <el-tab-pane label="属性" name="attr">Attr</el-tab-pane>
+          <el-tab-pane label="动画" name="animation" style="padding-top: 20px">
+            动画
+          </el-tab-pane>
+          <el-tab-pane label="事件" name="events" style="padding-top: 20px">
+            事件
+          </el-tab-pane>
+        </el-tabs>
+        <CanvasAttr v-else />
       </section>
       <el-button
         title="show-list-btn"
@@ -45,6 +54,7 @@ import { ref } from 'vue'
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
 import RealTimeComponentList from '@/components/RealTimeComponentList.vue'
+import CanvasAttr from '@/components/CanvasAttr.vue'
 // component -> Editor
 import Editor from '@/components/Editor/index.vue'
 // store
@@ -53,7 +63,7 @@ import { useStore } from '@/store/index.js'
 import { storeToRefs } from 'pinia'
 const leftList = ref(true)
 const store = useStore()
-const { rightList } = storeToRefs(store)
+const { rightList, isDarkMode, curComponent } = storeToRefs(store)
 // 左侧按钮事件
 const isShowLeft = () => {
   let newLeftList = !leftList.value

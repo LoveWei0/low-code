@@ -55,8 +55,8 @@
 <script setup>
 defineProps({
   isDarkMode: {
-    type: Boolean
-  }
+    type: Boolean,
+  },
 })
 </script>
 

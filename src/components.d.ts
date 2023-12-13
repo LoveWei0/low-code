@@ -8,12 +8,18 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AceEditor: typeof import('./components/Editor/AceEditor.vue')['default']
+    CanvasAttr: typeof import('./components/CanvasAttr.vue')['default']
     ComponentList: typeof import('./components/ComponentList.vue')['default']
     Editor: typeof import('./components/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     Grid: typeof import('./components/Editor/Grid.vue')['default']
     Preview: typeof import('./components/Editor/Preview.vue')['default']
     RealTimeComponentList: typeof import('./components/RealTimeComponentList.vue')['default']

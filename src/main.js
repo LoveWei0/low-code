@@ -16,7 +16,9 @@ import '@/assets/iconfont/iconfont.css'
 import '@/style/animate.scss'
 // 清除css
 import '@/style/reset.css'
+// 初始化样式
 import '@/style/global.scss'
+import '@/style/dark.scss'
 
 const app = createApp(App)
 

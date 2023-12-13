@@ -6,18 +6,9 @@
 -->
 <template>
   <div id="editor" class="editor">
-    <Grid :is-dark-mode="isDarkMode" />{{ isDarkMode }}
-    fdsf
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
-    <p>dfsd</p>
+    <!-- 网格线 -->
+    <Grid :is-dark-mode="isDarkMode" />
+    <!-- 页面组件列表展示 -->
   </div>
 </template>
 
@@ -27,7 +18,6 @@ import { useStore } from '@/store/index.js'
 import { storeToRefs } from 'pinia'
 const store = useStore()
 const { isDarkMode } = storeToRefs(store)
-console.log(isDarkMode)
 </script>
 
 <style scoped lang="scss">
