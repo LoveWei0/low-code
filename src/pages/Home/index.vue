@@ -24,6 +24,8 @@
         <div
           class="content"
           :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
+          @drop="handleDrop"
+          @dragover="handleDragover"
         >
           <Editor />
         </div>
@@ -52,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref ,onMounted} from 'vue'
 // component
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
@@ -64,6 +66,8 @@ import Editor from '@/components/Editor/index.vue'
 import { useStore } from '@/store/index.js'
 // pinia
 import { storeToRefs } from 'pinia'
+// utils
+import {deepCopy} from '@utils/utils.js'
 const leftList = ref(true)
 const store = useStore()
 const { rightList, isDarkMode, curComponent } = storeToRefs(store)
@@ -72,6 +76,24 @@ const isShowLeft = () => {
   let newLeftList = !leftList.value
   leftList.value = newLeftList
 }
+// 中间布局事件
+/**
+ * 拖拽
+ */
+const handleDrop = (e) => {
+  e.preventDefault()
+  e.stopPropagation()
+  const index = e.dataTransfer.getData('index')
+  if (index) {
+    const component = deepCopy(ComponentList[index])
+    store.addComponent(component)
+  }
+}
+const handleDragover = (e) => {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'copy';
+}
+
 </script>
 
 <style lang="scss">

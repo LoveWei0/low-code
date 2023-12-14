@@ -31,7 +31,6 @@ import { changeStyleWithScale } from '@utils/translate'
 // component
 import Grid from './Grid.vue'
 const { isDarkMode, canvasStyleData } = storeToRefs(useStore())
-console.log(Object.keys(canvasStyleData.value))
 // props
 defineProps({
   isEdit: {

@@ -4,8 +4,18 @@
 * @since:2023-12-12
 * RealTimeComponentList.vue
 -->
-<template>真实的</template>
+<template>
+  <div class="real-time-component-list">timeList{{ componentData }}</div>
+</template>
 
-<script setup></script>
+<script setup>
+import { useStore } from '@/store'
+import { storeToRefs } from 'pinia'
+const { componentData } = storeToRefs(useStore())
+</script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.real-time-component-list {
+  height: 35%;
+}
+</style>

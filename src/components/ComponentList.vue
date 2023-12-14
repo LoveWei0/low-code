@@ -9,12 +9,13 @@
     <div
       class="list"
       v-for="(item, index) in componentList"
+      draggable=true
       :key="index"
-      draggable
       :data-index="index"
     >
       <span v-if="item.icon.substring(0, 2) === 'el'" :class="item.icon"></span>
       <span v-else class="iconfont" :class="'icon-' + item.icon"></span>
+      {{ item.label }}
     </div>
   </div>
 </template>
