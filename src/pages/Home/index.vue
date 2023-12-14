@@ -20,7 +20,10 @@
         @click="isShowLeft"
       ></el-button>
       <!-- 中间画布 -->
-      <section class="center" :style="rightList ? 'margin-right:288px' : 'margin-right:10px'">
+      <section
+        class="center"
+        :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
+      >
         <div
           class="content"
           @drop="handleDrop"

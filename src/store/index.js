@@ -45,6 +45,15 @@ export const useStore = defineStore('useStore', {
     setInEditorStatus(status) {
       this.isInEditor = status
     },
+    // 设置组件数据
+    setCurComponent({ component, index }) {
+      this.curComponent = component
+      this.curComponentIndex = index
+    },
+    // 重置componentData
+    setComponentData(componentData) {
+      this.componentData = componentData
+    },
   },
   persist: true,
 })

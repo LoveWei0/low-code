@@ -15,7 +15,7 @@
     </label>
     <el-button style="margin-left: 10px">预览</el-button>
     <el-button>保存</el-button>
-    <el-button>清空画布</el-button>
+    <el-button @click="clearCanvas">清空画布</el-button>
     <el-button>组合</el-button>
     <el-button>拆分</el-button>
     <el-button>锁定</el-button>
@@ -52,6 +52,8 @@ import { ref } from 'vue'
 // components
 import Preview from '@/components/Editor/Preview.vue'
 import AceEditor from '@/components/Editor/AceEditor.vue'
+// useStore
+import { useStore } from '@store/index'
 
 const switchValue = ref(false)
 const isShowPreview = ref(false)
@@ -61,6 +63,12 @@ const isShowAceEditor = ref(false)
 // JSON事件
 const handleAceEditorChange = () => {
   isShowAceEditor.value = !isShowAceEditor.value
+}
+const store = useStore()
+// 清空画布
+const clearCanvas = () => {
+  store.setCurComponent({ component: null, index: null })
+  store.setComponentData([])
 }
 </script>
 
