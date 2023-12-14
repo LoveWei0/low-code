@@ -13,7 +13,7 @@ defineProps({
   propValue: {
     type: String,
     default: '',
-  }
+  },
 })
 </script>
 

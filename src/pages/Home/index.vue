@@ -20,12 +20,12 @@
         @click="isShowLeft"
       ></el-button>
       <!-- 中间画布 -->
-      <section class="center">
+      <section class="center" :style="rightList ? 'margin-right:288px' : 'margin-right:10px'">
         <div
           class="content"
-          :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
           @drop="handleDrop"
           @dragover="handleDragover"
+          @mousedown="handleMouseDown"
         >
           <Editor />
         </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref ,onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 // component
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
@@ -62,15 +62,18 @@ import RealTimeComponentList from '@/components/RealTimeComponentList.vue'
 import CanvasAttr from '@/components/CanvasAttr.vue'
 // component -> Editor
 import Editor from '@/components/Editor/index.vue'
+// componentList
+import componentList from '@/custom-component/component-list'
 // store
 import { useStore } from '@/store/index.js'
 // pinia
 import { storeToRefs } from 'pinia'
 // utils
-import {deepCopy} from '@utils/utils.js'
+import { deepCopy } from '@utils/utils.js'
 const leftList = ref(true)
 const store = useStore()
-const { rightList, isDarkMode, curComponent } = storeToRefs(store)
+const { rightList, isDarkMode, curComponent, isClickComponent } =
+  storeToRefs(store)
 // 左侧按钮事件
 const isShowLeft = () => {
   let newLeftList = !leftList.value
@@ -85,15 +88,21 @@ const handleDrop = (e) => {
   e.stopPropagation()
   const index = e.dataTransfer.getData('index')
   if (index) {
-    const component = deepCopy(ComponentList[index])
+    const component = deepCopy(componentList[index])
+    console.log(componentList[index])
     store.addComponent(component)
   }
 }
 const handleDragover = (e) => {
-  e.preventDefault();
-  e.dataTransfer.dropEffect = 'copy';
+  e.preventDefault()
+  e.dataTransfer.dropEffect = 'copy'
 }
-
+// 鼠标事件
+const handleMouseDown = (e) => {
+  e.stopPropagation()
+  store.setClickComponentStatus(false)
+  store.setInEditorStatus(true)
+}
 </script>
 
 <style lang="scss">

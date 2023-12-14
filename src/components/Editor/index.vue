@@ -18,7 +18,7 @@
     <!-- 网格线 -->
     <Grid :is-dark-mode="isDarkMode" />
     <!-- 页面组件列表展示 -->
-    {{ canvasStyleData }}
+    {{ componentData }}
   </div>
 </template>
 
@@ -30,7 +30,7 @@ import { getCanvasStyle } from '@utils/style'
 import { changeStyleWithScale } from '@utils/translate'
 // component
 import Grid from './Grid.vue'
-const { isDarkMode, canvasStyleData } = storeToRefs(useStore())
+const { isDarkMode, canvasStyleData,componentData } = storeToRefs(useStore())
 // props
 defineProps({
   isEdit: {
