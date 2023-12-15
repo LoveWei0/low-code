@@ -20,11 +20,11 @@ import '@/style/reset.css'
 import '@/style/global.scss'
 import '@/style/dark.scss'
 
+const app = createApp(App)
 const store = createPinia()
 
 store.use(piniaPluginPersistedstate)
 
-const app = createApp(App)
 
 app.use(router)
 app.use(store)

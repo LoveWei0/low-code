@@ -29,7 +29,7 @@ export const commonAttr = {
 // 编辑器左边列表
 const list = [
   {
-    component: 'VText',
+    component: 'VTextAttr',
     label: '文本',
     propValue: '双击编辑文字',
     icon: 'wenben',
@@ -54,7 +54,7 @@ const list = [
     },
   },
   {
-    component: 'VButton',
+    component: 'VButtonAttr',
     label: '按钮',
     propValue: '按钮',
     icon: 'button',
@@ -70,11 +70,11 @@ const list = [
       letterSpacing: 0,
       TextAlign: '',
       color: '',
-      backgroundColor: '',
+      backgroundColor: 'pink',
     },
   },
   {
-    component: 'Picture',
+    component: 'PictureAttr',
     label: '图片',
     icon: 'tupian',
     propValue: {
@@ -91,7 +91,7 @@ const list = [
     },
   },
   {
-    component: 'RectShape',
+    component: 'RectShapeAttr',
     label: '矩形',
     propValue: '&nbsp;',
     icon: 'juxing',
@@ -113,7 +113,7 @@ const list = [
     },
   },
   {
-    component: 'LineShape',
+    component: 'LineShapeAttr',
     label: '直线',
     propValue: '',
     icon: 'zhixian',
@@ -124,7 +124,7 @@ const list = [
     },
   },
   {
-    component: 'CircleShape',
+    component: 'CircleShapeAttr',
     label: '圆形',
     propValue: '&nbsp;',
     icon: '24gl-circle',
@@ -146,7 +146,7 @@ const list = [
     },
   },
   {
-    component: 'SVGStar',
+    component: 'SVGStarAttr',
     label: '星形',
     icon: 'kongwujiaoxing',
     propValue: '',
@@ -164,7 +164,7 @@ const list = [
     },
   },
   {
-    component: 'SVGTriangle',
+    component: 'SVGTriangleAttr',
     label: '三角形',
     icon: 'xingzhuang-sanjiaoxing',
     propValue: '',
@@ -182,7 +182,7 @@ const list = [
     },
   },
   {
-    component: 'VTable',
+    component: 'VTableAttr',
     label: '表格',
     icon: 'biaoge',
     propValue: {
@@ -213,7 +213,7 @@ const list = [
     },
   },
   {
-    component: 'VChart',
+    component: 'VChartAttr',
     label: '图表',
     icon: 'el-icon-data-analysis',
     propValue: {

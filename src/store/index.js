@@ -3,7 +3,6 @@ import { defineStore } from 'pinia'
 export const useStore = defineStore('useStore', {
   state: () => ({
     rightList: true,
-    count: 0,
     componentData: [],
     curComponent: null,
     curComponentIndex: null,
@@ -30,7 +29,6 @@ export const useStore = defineStore('useStore', {
     },
     // 添加组件
     addComponent({ component, index }) {
-      console.log(index)
       if (index !== undefined) {
         this.componentData.splice(index, 0, component)
       } else {

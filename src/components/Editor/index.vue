@@ -18,7 +18,18 @@
     <!-- 网格线 -->
     <Grid :is-dark-mode="isDarkMode" />
     <!-- 页面组件列表展示 -->
-    {{ componentData }}
+    <!-- <Shape
+      v-for="(item, index) in store.componentData"
+      :key="item.id"
+      :active="item.id === (curComponent || {}).id"
+      :element="item"
+      :default-style="item.style"
+      :index="index"
+    >
+    </Shape> -->
+    <div v-for="(com,index) in componentData" :key="index">
+      <component :is="com"></component>
+    </div>
   </div>
 </template>
 
@@ -30,7 +41,12 @@ import { getCanvasStyle } from '@utils/style'
 import { changeStyleWithScale } from '@utils/translate'
 // component
 import Grid from './Grid.vue'
-const { isDarkMode, canvasStyleData, componentData } = storeToRefs(useStore())
+import Shape from './Shape.vue'
+const store = useStore()
+const arrList = [ "VButtonAttr", "VTableAttr",]
+// show store
+const { isDarkMode, canvasStyleData, componentData, curComponent } =
+  storeToRefs(useStore())
 // props
 defineProps({
   isEdit: {

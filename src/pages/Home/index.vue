@@ -29,6 +29,7 @@
           @drop="handleDrop"
           @dragover="handleDragover"
           @mousedown="handleMouseDown"
+          @mouseup="deselectCurComponent"
         >
           <Editor />
         </div>
@@ -69,6 +70,7 @@ import Editor from '@/components/Editor/index.vue'
 import componentList from '@/custom-component/component-list'
 // store
 import { useStore } from '@/store/index.js'
+import { useContextMenuStore } from '@store/contextmenu'
 // pinia
 import { storeToRefs } from 'pinia'
 // utils
@@ -92,7 +94,6 @@ const handleDrop = (e) => {
   const index = e.dataTransfer.getData('index')
   if (index) {
     const component = deepCopy(componentList[index])
-    console.log(componentList[index])
     store.addComponent(component)
   }
 }
@@ -105,6 +106,16 @@ const handleMouseDown = (e) => {
   e.stopPropagation()
   store.setClickComponentStatus(false)
   store.setInEditorStatus(true)
+}
+const contextMenuStore = useContextMenuStore()
+const deselectCurComponent = (e) => {
+  if (!isClickComponent) {
+    store.setCurComponent({ component: null, index: null })
+  }
+  // 0 左击 1 滚轮 2 右击
+  if (e.button != 2) {
+    contextMenuStore.hideContextMenu()
+  }
 }
 </script>
 

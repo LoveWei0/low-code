@@ -5,7 +5,7 @@
 * Attr.vue
 -->
 <template>
-  <button>{{ propValue }}</button>
+  <button>{{ propValue }}sd</button>
 </template>
 
 <script setup>
