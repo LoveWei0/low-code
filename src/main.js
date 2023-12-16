@@ -25,7 +25,6 @@ const store = createPinia()
 
 store.use(piniaPluginPersistedstate)
 
-
 app.use(router)
 app.use(store)
 // 注册全局组件

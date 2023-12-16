@@ -5,7 +5,7 @@
 * Shape.vue
 -->
 <template>
-  <div class="shape">shape</div>
+<div class="shape"></div>
 </template>
 
 <script setup>
@@ -17,7 +17,7 @@ defineProps({
   element: {
     required: true,
     type: Object,
-    default: () => {},
+    default: () => ({}),
   },
   defaultStyle: {
     required: true,

@@ -94,7 +94,7 @@ const handleDrop = (e) => {
   const index = e.dataTransfer.getData('index')
   if (index) {
     const component = deepCopy(componentList[index])
-    store.addComponent(component)
+    store.addComponent(component,index)
   }
 }
 const handleDragover = (e) => {
