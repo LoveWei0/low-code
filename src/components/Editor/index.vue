@@ -27,11 +27,38 @@
       :index="index"
       :class="{ lock: item.isLock }"
     >
-      <component :is="item.component" />
+      <component
+        :is="item.component"
+        v-if="item.component.startsWith('SVG')"
+        :id="'component' + item.id"
+        class="component"
+        :style="getSVGStyle(item.style)"
+        :prop-value="item.propValue"
+        :element="item"
+        :request="item.request"
+      />
+      <component
+        :is="item.component"
+        v-else-if="item.component != 'VText'"
+        :id="'component' + item.id"
+        class="component"
+        :style="getComponentStyle(item.style)"
+        :prop-value="item.propValue"
+        :element="item"
+        :request="item.request"
+      />
+      <component
+        :is="item.component"
+        v-else
+        :id="'component' + item.id"
+        class="component"
+        :style="getComponentStyle(item.style)"
+        :prop-value="item.propValue"
+        :element="item"
+        :request="item.request"
+
+      />
     </Shape>
-    <!-- <div v-for="(com, index) in componentData" :key="index">
-      <component :is="com"></component>
-    </div> -->
   </div>
 </template>
 
@@ -44,6 +71,10 @@ import { changeStyleWithScale } from '@utils/translate'
 // component
 import Grid from './Grid.vue'
 import Shape from './Shape.vue'
+// utils -> style
+import { getStyle, getSvgStyle } from '@utils/style'
+// ref
+import { ref } from 'vue'
 // show store
 const { isDarkMode, canvasStyleData, componentData, curComponent } =
   storeToRefs(useStore())
@@ -54,6 +85,29 @@ defineProps({
     default: true,
   },
 })
+// data
+const editorData = ref({
+  editorX: 0,
+  editorY: 0,
+})
+const startData = ref({
+  x: 0,
+  y: 0,
+})
+const widthOrHeightData = ref({
+  width: 0,
+  height: 0,
+})
+const isShowAreaData = ref(false)
+const svgFilterAttrs = ref(['width', 'height', 'top', 'left', 'rotate'])
+// 组件样式
+const getComponentStyle = (style) => {
+  return getStyle(style, svgFilterAttrs.value)
+}
+// svg样式
+const getSVGStyle = (style) => {
+  return getSvgStyle(style, svgFilterAttrs.value)
+}
 </script>
 
 <style scoped lang="scss">
@@ -61,18 +115,22 @@ defineProps({
   position: relative;
   background-color: #fff;
   margin: auto;
+
   .lock {
     opacity: 0.5;
+
     &:hover {
       cursor: not-allowed;
     }
   }
 }
+
 .edit {
   .component {
     outline: none;
     width: 100%;
     height: 100%;
+    background-color: pink;
   }
 }
 </style>
