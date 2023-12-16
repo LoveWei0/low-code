@@ -7,11 +7,15 @@
 <!--  -->
 <!--  -->
 <template>
-  <div class="shape" :class="{active}">
+  <div class="shape" :class="{ active }">
     <span class="iconfont icon-xiangyouxuanzhuan" v-show="isActive()">ddd</span>
     <span class="iconfont icon-suo" v-show="element.isLock"></span>
-    <div class="shape-point" v-for="item in isActive() ? getPointList() : []" :key="item" :style="getPointStyle(item)">
-    </div>
+    <div
+      class="shape-point"
+      v-for="item in isActive() ? getPointList() : []"
+      :key="item"
+      :style="getPointStyle(item)"
+    ></div>
     <slot></slot>
   </div>
 </template>
@@ -99,7 +103,7 @@ const getPointStyle = (point) => {
     marginTop: '-4px',
     left: `${newLeft}px`,
     top: `${newTop}px`,
-    cursor: cursors.value[point]
+    cursor: cursors.value[point],
   }
   return style
 }

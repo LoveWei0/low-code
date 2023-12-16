@@ -56,7 +56,6 @@
         :prop-value="item.propValue"
         :element="item"
         :request="item.request"
-
       />
     </Shape>
   </div>
