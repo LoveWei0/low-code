@@ -20,10 +20,16 @@
         @click="isShowLeft"
       ></el-button>
       <!-- 中间画布 -->
-      <section class="center">
+      <section
+        class="center"
+        :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
+      >
         <div
           class="content"
-          :style="rightList ? 'margin-right:288px' : 'margin-right:10px'"
+          @drop="handleDrop"
+          @dragover="handleDragover"
+          @mousedown="handleMouseDown"
+          @mouseup="deselectCurComponent"
         >
           <Editor />
         </div>
@@ -52,7 +58,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 // component
 import Toolbar from '@/components/Toolbar.vue'
 import ComponentList from '@/components/ComponentList.vue'
@@ -60,17 +66,56 @@ import RealTimeComponentList from '@/components/RealTimeComponentList.vue'
 import CanvasAttr from '@/components/CanvasAttr.vue'
 // component -> Editor
 import Editor from '@/components/Editor/index.vue'
+// componentList
+import componentList from '@/custom-component/component-list'
 // store
 import { useStore } from '@/store/index.js'
+import { useContextMenuStore } from '@store/contextmenu'
 // pinia
 import { storeToRefs } from 'pinia'
+// utils
+import { deepCopy } from '@utils/utils.js'
 const leftList = ref(true)
 const store = useStore()
-const { rightList, isDarkMode, curComponent } = storeToRefs(store)
+const { rightList, isDarkMode, curComponent, isClickComponent } =
+  storeToRefs(store)
 // 左侧按钮事件
 const isShowLeft = () => {
   let newLeftList = !leftList.value
   leftList.value = newLeftList
+}
+// 中间布局事件
+/**
+ * 拖拽
+ */
+const handleDrop = (e) => {
+  e.preventDefault()
+  e.stopPropagation()
+  const index = e.dataTransfer.getData('index')
+  if (index) {
+    const component = deepCopy(componentList[index])
+    store.addComponent(component, index)
+  }
+}
+const handleDragover = (e) => {
+  e.preventDefault()
+  e.dataTransfer.dropEffect = 'copy'
+}
+// 鼠标事件
+const handleMouseDown = (e) => {
+  e.stopPropagation()
+  store.setClickComponentStatus(false)
+  store.setInEditorStatus(true)
+}
+const contextMenuStore = useContextMenuStore()
+const deselectCurComponent = (e) => {
+  if (!isClickComponent) {
+    store.setCurComponent({ component: null, index: null })
+  }
+  // 0 左击 1 滚轮 2 右击
+  if (e.button != 2) {
+    contextMenuStore.hideContextMenu()
+  }
 }
 </script>
 

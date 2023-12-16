@@ -24,6 +24,7 @@ declare module 'vue' {
     RealTimeComponentList: typeof import('./components/RealTimeComponentList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Shape: typeof import('./components/Editor/Shape.vue')['default']
     Toolbar: typeof import('./components/Toolbar.vue')['default']
   }
 }

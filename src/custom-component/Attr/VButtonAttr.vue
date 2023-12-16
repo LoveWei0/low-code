@@ -4,8 +4,17 @@
 * @since:2023-12-12
 * Attr.vue
 -->
-<template>VButtonAttr</template>
+<template>
+  <button>{{ propValue }}sd</button>
+</template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  propValue: {
+    type: String,
+    default: '',
+  },
+})
+</script>
 
 <style scoped></style>
