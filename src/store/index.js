@@ -28,7 +28,7 @@ export const useStore = defineStore('useStore', {
       this.rightList = !this.rightList
     },
     // 添加组件
-    addComponent( component, index ) {
+    addComponent(component, index) {
       if (index !== undefined) {
         this.componentData.splice(index, 0, component)
       } else {

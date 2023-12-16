@@ -27,7 +27,7 @@
       :index="index"
       :class="{ lock: item.isLock }"
     >
-    <component :is="item.component"/>
+      <component :is="item.component" />
     </Shape>
     <!-- <div v-for="(com, index) in componentData" :key="index">
       <component :is="com"></component>

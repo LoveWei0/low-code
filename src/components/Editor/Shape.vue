@@ -5,7 +5,7 @@
 * Shape.vue
 -->
 <template>
-<div class="shape"></div>
+  <div class="shape"></div>
 </template>
 
 <script setup>
